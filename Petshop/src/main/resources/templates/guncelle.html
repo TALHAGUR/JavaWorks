@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>H5210049-Muhammet Talha Gur</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<style>
+body {
+  background-image: url("https://img.freepik.com/premium-vector/seamless-pattern-cute-dog-puppy-symbol-toy-paw-footstep-cartoon-funny-happy-dog-concept-with-simple-shape-style-illustration-background-wallpaper-textile-fabric_253081-200.jpg");
+}
+.container{
+ background-color:rgba(200,200,200,0.7) ;
+}
+</style>
+<body>
+<div class="container" align="center" style="padding: 0;">
+    <h3 style="padding:5px; margin-top:35px; color: #fff; background-color:#C38154 ;">Misafir Guncelle</h3>
+    <hr>
+    <form action="#" th:action="@{/kaydet}" th:object="${misafir}"
+          method="POST">
+
+
+        <input type="hidden" th:field="*{id}" />
+
+        <input type="text" th:field="*{misafirAdi}" name="misafirAdi" placeholder="Misafirin Adi"
+               class="form-control mb-4 col-4">
+        <input type="number" th:field="*{yas}" name="yas" placeholder="Yas"
+               class="form-control mb-4 col-4">
+        <input type="number" th:field="*{kilo}" name="kilo" placeholder="Kilo"
+               class="form-control mb-4 col-4">
+        <input type="date" th:field="*{gelisTarihi}" name="gelisTarihi"
+               class="form-control mb-4 col-4">
+        <textarea rows="5" th:field="*{notlar}" name="notlar" placeholder="Not"
+                  class="form-control mb-4 col-4"></textarea>
+
+        <button type="submit" class="btn btn-warning col-2" style="color: #fff;">Guncelle</button>
+    </form>
+
+    <hr>
+
+    <a th:href = "@{/}" class="btn btn-secondary" style="color: #fff; margin-bottom:30px;"> Misafir Listesine Geri Don</a>
+</div>
+</body>
+</html>

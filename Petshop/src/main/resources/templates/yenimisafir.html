@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>H5210049-Muhammet Talha Gur</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+
+<style>
+body {
+  background-image: url("https://img.freepik.com/premium-vector/seamless-pattern-with-heads-different-breeds-dogs-corgi-beagle-chihuahua-terrier-pomeranian-texture-with-dog-faces-hand-drawn-vector-illustration-doodle-style-white-background_192280-214.jpg");
+  background-size: contain;
+  background-position: center;
+
+}
+
+.container{
+  background-color:rgba(0,0,0,0.2) ;
+}
+</style>
+<body>
+<div class="container my-2" align="center" style="padding: 0;">
+
+    <h3 style="margin-top:35px; color:#fff; background-color:#1B9C85; padding: 5px;">Yeni Misafir Ekle</h3>
+    <hr>
+    <form action="#" th:action="@{/kaydet}" th:object="${misafir}"
+          method="POST">
+        <input type="text" th:field="*{misafirAdi}" name="misafirAdi" placeholder="Misafirin Adi"
+               class="form-control mb-4 col-4">
+        <input type="number" th:field="*{yas}" name="yas" placeholder="Yas"
+               class="form-control mb-4 col-4">
+        <input type="number" th:field="*{kilo}" name="kilo" placeholder="Kilo"
+               class="form-control mb-4 col-4">
+        <input type="date" th:field="*{gelisTarihi}" name="gelisTarihi" placeholder="Tarih"
+               class="form-control mb-4 col-4">
+        <textarea rows="5" th:field="*{notlar}" name="notlar" placeholder="Not"
+               class="form-control mb-4 col-4"></textarea>
+
+        <br />
+        <button class="btn btn-success col-2">Kaydet</button>
+    </form>
+
+    <hr>
+
+    <a th:href="@{/}" class="btn btn-secondary" style="color: #fff; margin-bottom:30px;"> Misafir Listesine Geri Don</a>
+</div>
+</body>
+</html>

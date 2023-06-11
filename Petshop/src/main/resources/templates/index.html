@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="tr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>H5210049-Muhammet Talha Gur</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+</head>
+<style>
+body {
+
+  background-image: url("https://t3.ftcdn.net/jpg/01/86/42/44/360_F_186424417_a6r0AO8VfE9WIF7EC4MRvn6cpJKjTjRu.webp");
+  background-size: 600px;
+  background-position: center;
+}
+
+.container{
+  background-color:rgba(0,0,0,0.2) ;
+}
+</style>
+<body>
+<div class="container my-2" align="center" style="padding: 0;">
+
+    <h3 style="margin-top:35px; color:#fff; background-color:#5C8984; padding: 5px; ">Misafir Listesi</h3>
+    <hr>
+    <table style="max-width:90%; text-align:center; color: #C38154; " border="1"
+           class = "table table-bordered table-responsive-md">
+        <thead>
+        <tr style="background-color:#fff;">
+            <th>Isim</th>
+            <th>Yas</th>
+            <th>Kilo</th>
+            <th>Geldigi Tarih</th>
+            <th>Not</th>
+            <th>Islemler</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="misafir:${tumMisafirler}" style="color:#1B9C85; background-color:#fff;">
+            <td th:text="${misafir.misafirAdi}"></td>
+            <td th:text="${misafir.yas}"></td>
+            <td th:text="${misafir.kilo}"></td>
+            <td th:text="${misafir.gelisTarihi}"></td>
+            <td th:text="${misafir.notlar}"></td>
+            <td> <a th:href="@{/guncelle/{id}(id=${misafir.id})}"
+                    class="btn btn-warning" style="color: #fff;">Guncelle</a>
+                <a th:href="@{/misafirSil/{id}(id=${misafir.id})}"
+                   class="btn btn-danger" style="color: #fff;" >Sil</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <a th:href="@{/yeniMisafir}" class="btn btn-success " style="color:#fff; margin-bottom:30px;" >Yeni Misafir Ekle</a>
+</div>
+</body>
+</html>
